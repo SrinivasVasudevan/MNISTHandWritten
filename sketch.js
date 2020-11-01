@@ -7,8 +7,12 @@ const paths = [];
 let currentPath = [];
 
 function setup() {
-    createCanvas(window.innerWidth, window.innerHeight);
+    
+    createCanvas(400, 300);
+    strokeWeight(6);
+    noFill();
     background(255);
+
 }
 
 function draw() {
@@ -44,4 +48,11 @@ clear.addEventListener('click', () => {
     paths.splice(0);
     background(255);
 });
+
+function keyPressed() {
+	if(key === 's' || key ==='S'){
+    println("save the drawing here");
+    saveJSON(points, "drawings.json");
+  }
+}
 
