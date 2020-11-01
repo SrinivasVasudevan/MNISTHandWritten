@@ -8,7 +8,7 @@
 
 </head>
 
-
+<h1 id="result"></h1>>
 <body>
 <div class="sidebar">
     <ul>
@@ -25,10 +25,31 @@
     
 </div>
 
+
+
 <button id="clear">clear</button>
 <button id="predict">predict</button>
 
 <script src="sketch.js"></script>
+<script>
+    
+    $("#predict").click(function(){
+	   			$('#result').text('  Predicting...');
+	   			var $SCRIPT_ROOT = "";
+	   			var canvasObj = document.getElementById("canvas");
+	   			var img = canvasObj.toDataURL('image/png');
+	   			$.ajax({
+	   				type: "POST",
+	   				url: $SCRIPT_ROOT + "/predict/",
+	   				data: img,
+	   				success: function(data){
+	   					$('#result').text('Predicted Output: ' + data);
+	   				}
+	   			});
+	   		});
+	   
+
+</script>
 
 
 </body>                             
