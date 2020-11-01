@@ -36,6 +36,11 @@ h4 {
     z-index: 1000;
 }
 
+canvas {
+    border-radius: 12px;
+    border-width: 10px;
+  }
+
 .sidebar ul {
     display: flex;
     justify-content: center;
