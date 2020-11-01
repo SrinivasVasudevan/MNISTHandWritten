@@ -52,7 +52,9 @@ clear.addEventListener('click', () => {
 function keyPressed() {
 	if(key === 's' || key ==='S'){
     println("save the drawing here");
-    saveJSON(points, "drawings.json");
+    saveCanvas('myCanvas', 'jpg');
+
+    //saveJSON(points, "drawings.json");
   }
 }
 
