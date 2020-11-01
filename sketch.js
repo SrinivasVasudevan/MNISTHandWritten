@@ -2,10 +2,12 @@
 
 const colorInput = document.getElementById('color');
 const weight = document.getElementById('weight');
-const clear = document.getElementById('clear');
+//const clear = document.getElementById('clear');
 const paths = [];
 let currentPath = [];
 
+document.getElementById('clear').addEventListener("click", clearCanvas); 
+document.getElementById('predict').addEventListener("click", scanvas); 
 var cnv;
 
 function centerCanvas() {
@@ -63,12 +65,17 @@ clear.addEventListener('click', () => {
     background(255);
 });
 
-function keyPressed() {
-	if(key === 's' || key ==='S'){
-    console.log("save the drawing here");
-    saveCanvas(cnv, 'myCanvas', 'jpg');
+function scanvas(){
 
-    //saveJSON(points, "drawings.json");
-  }
+    var canvasData = canvas.toDataURL("image/png");
+    var ajax = new XMLHttpRequest();
+    ajax.open("POST",'save.php',false);
+    ajax.setRequestHeader('Content-Type', 'application/upload');
+    ajax.send(canvasData); 
+
 }
+function clearCanvas(){
+    background(255);
+}
+
 
