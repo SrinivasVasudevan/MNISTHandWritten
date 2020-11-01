@@ -9,11 +9,17 @@ let currentPath = [];
 function setup() {
     
     createCanvas(400, 300);
+    centreCanvas();
     strokeWeight(6);
     noFill();
     background(255);
 
 }
+function windowResized() {
+    centerCanvas();
+  }
+
+
 
 function draw() {
     noFill();
