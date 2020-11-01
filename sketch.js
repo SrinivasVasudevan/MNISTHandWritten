@@ -6,24 +6,32 @@ const clear = document.getElementById('clear');
 const paths = [];
 let currentPath = [];
 
-function setup() {
-    
-    createCanvas(400, 300);
-    centreCanvas();
-    strokeWeight(6);
-    noFill();
-    background(255);
+var cnv;
 
+function centerCanvas() {
+  var x = (windowWidth - width) / 2;
+  var y = (windowHeight - height) / 2;
+  cnv.position(x, y);
 }
+
+function setup() {
+  cnv = createCanvas(windowWidth*0.5, windowHeight*0.5);
+  centerCanvas();
+  background(255, 255, 255);
+}
+
 function windowResized() {
+    resizeCanvas(windowWidth*0.5, windowHeight*0.5);
     centerCanvas();
-  }
+ 
+}
 
 
 
 function draw() {
     noFill();
     
+
     if(mouseIsPressed){
         const point = {
             x: mouseX,
@@ -57,8 +65,8 @@ clear.addEventListener('click', () => {
 
 function keyPressed() {
 	if(key === 's' || key ==='S'){
-    println("save the drawing here");
-    saveCanvas('myCanvas', 'jpg');
+    console.log("save the drawing here");
+    saveCanvas(cnv, 'myCanvas', 'jpg');
 
     //saveJSON(points, "drawings.json");
   }
