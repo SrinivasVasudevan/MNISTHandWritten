@@ -7,7 +7,7 @@ const paths = [];
 let currentPath = [];
 
 document.getElementById('clear').addEventListener("click", clearCanvas); 
-document.getElementById('predict').addEventListener("click", scanvas); 
+//document.getElementById('predict').addEventListener("click", scanvas); 
 var cnv;
 
 function centerCanvas() {
